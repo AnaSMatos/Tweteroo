@@ -14,12 +14,12 @@ let currentAvatar;
 app.post("/sign-up", (req, res) => {
     user.push(req.body);
     currentAvatar = req.body.avatar;
-    res.send("OK")
+    res.status(201).send("OK")
 })
 
 app.post("/tweets", (req, res) => {
     tweets.push({...req.body, avatar: currentAvatar});
-    res.send("OK")
+    res.status(201).send("OK")
 })
 
 app.get("/tweets", (req, res) => {
